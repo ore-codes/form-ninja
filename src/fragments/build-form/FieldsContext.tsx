@@ -2,12 +2,7 @@
 
 import { createContext, PropsWithChildren } from 'react';
 import { Updater, useImmer } from 'use-immer';
-import { FieldType } from '@/types/forms.types';
-
-interface Field {
-  label: string;
-  type: FieldType;
-}
+import { Field } from '@/types/forms.types';
 
 interface FieldsContextReturn {
   fields: Field[];
@@ -25,4 +20,3 @@ const FieldsProvider = ({ children }: PropsWithChildren) => {
 };
 
 export { FieldsContext, FieldsProvider };
-export type { Field };

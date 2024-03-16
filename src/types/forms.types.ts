@@ -1,5 +1,14 @@
+import { Tables } from '@/types/database.types';
+
+export interface Field {
+  label: string;
+  type: FieldType;
+}
+
 export enum FieldType {
-  Boolean = 'Boolean',
   Money = 'Money',
+  Rating = 'Rating',
   Text = 'Text',
 }
+
+export type FormRecord = Tables<'forms'> & { fields: Field[] };

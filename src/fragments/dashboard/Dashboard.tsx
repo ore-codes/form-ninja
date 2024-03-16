@@ -1,8 +1,9 @@
 'use client';
 
-import { Button } from '@mantine/core';
+import { Button, Stack } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import Link from 'next/link';
+import UserForm from '@/chunks/user-form/UserForm';
 import useDashboard from './useDashboard';
 
 export default function Dashboard() {
@@ -17,7 +18,9 @@ export default function Dashboard() {
       <Button component={Link} href="/build-form" leftSection={<IconPlus size={14} />}>
         Build a new form
       </Button>
-      {h.forms?.map((form) => <div>{form.uuid}</div>)}
+      <Stack gap="md" my={32}>
+        {h.forms?.map((form) => <UserForm key={form.uuid} form={form} />)}
+      </Stack>
     </>
   );
 }

@@ -3,6 +3,6 @@
 import { createTheme } from '@mantine/core';
 
 export const theme = createTheme({
-  primaryColor: 'violet',
+  primaryColor: 'pink',
   fontFamily: 'var(--font-mulish)',
 });

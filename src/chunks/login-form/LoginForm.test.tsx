@@ -1,5 +1,5 @@
 import userEvent, { UserEvent } from '@testing-library/user-event';
-import { LoginForm } from '@/chunks/login-form/LoginForm';
+import { LoginForm } from './LoginForm';
 import { render, screen } from '@/config/test-utils';
 
 describe('<LoginForm/>', () => {

@@ -1,8 +1,9 @@
 import { Title } from '@mantine/core';
+import { FormRecord } from '@/types/forms.types';
 import { supabase } from '@/config/supabase';
 import Error from '@/fragments/error/Error';
 import ViewForm from '@/fragments/view-form/ViewForm';
-import { FormRecord, ViewFormProvider } from '@/fragments/view-form/ViewFormContext';
+import { ViewFormProvider } from '@/fragments/view-form/ViewFormContext';
 
 interface Props {
   params: {

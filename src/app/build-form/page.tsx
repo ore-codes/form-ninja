@@ -1,6 +1,6 @@
 import { Title } from '@mantine/core';
-import BuildForm from '@/chunks/build-form/BuildForm';
-import { FieldsProvider } from '@/chunks/build-form/FieldsContext';
+import BuildForm from '@/fragments/build-form/BuildForm';
+import { FieldsProvider } from '@/fragments/build-form/FieldsContext';
 
 export default function Page() {
   return (

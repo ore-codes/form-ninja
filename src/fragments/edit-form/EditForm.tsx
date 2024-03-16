@@ -1,16 +1,16 @@
 'use client';
 
 import { Button, Center, Flex, Stack, TextInput, Title } from '@mantine/core';
-import FormField from './form-field/FormField';
-import NewField from './new-field/NewField';
-import useBuildForm from './useBuildForm';
+import FormField from '@/chunks/form-field/FormField';
+import NewField from '@/chunks/new-field/NewField';
+import useEditForm from './useEditForm';
 
-export default function BuildForm() {
-  const h = useBuildForm();
+export default function EditForm() {
+  const h = useEditForm();
 
   return (
     <Flex gap="md" maw="75em" mx="auto" mt={16} direction={h.isLg ? 'row' : 'column'}>
-      <form onSubmit={h.onSubmit} style={{ flex: 1 }}>
+      <form style={{ flex: 1 }} onSubmit={h.onSubmit}>
         <Stack gap="md" maw="40em">
           <TextInput
             label="Title"
@@ -21,7 +21,13 @@ export default function BuildForm() {
             <>
               <Title order={5}>Form fields</Title>
               {h.fields.map((f, index) => (
-                <FormField key={index} fieldType={f.type} index={index} label={f.label} />
+                <FormField
+                  key={index}
+                  updater={h.updateFields}
+                  fieldType={f.type}
+                  index={index}
+                  label={f.label}
+                />
               ))}
             </>
           ) : (
@@ -39,7 +45,7 @@ export default function BuildForm() {
           </Button>
         </Stack>
       </form>
-      <NewField />
+      <NewField updater={h.updateFields} />
     </Flex>
   );
 }

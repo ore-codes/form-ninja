@@ -26,13 +26,13 @@ export default function RootLayout(props: PropsWithChildren) {
           <ColorSchemeScript />
         </head>
         <body>
-          <MantineProvider theme={theme}>
+          <MantineProvider theme={theme} forceColorScheme="dark">
             <div className={mulish.variable}>
               <Nav />
               <Box m={16}>{props.children}</Box>
             </div>
           </MantineProvider>
-          <ToastContainer />
+          <ToastContainer theme="dark" />
         </body>
       </html>
     </ReactQueryClientProvider>

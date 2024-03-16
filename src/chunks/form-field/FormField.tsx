@@ -10,13 +10,17 @@ export default function FormField(props: FormFieldProps) {
       <Card.Section withBorder p={16}>
         <Flex justify="space-between" align="center">
           <Badge>{props.fieldType}</Badge>
-          <Button variant="transparent" c="violet.7" onClick={h.onDelete}>
+          <Button variant="transparent" onClick={h.onDelete}>
             Delete
           </Button>
         </Flex>
       </Card.Section>
       <Card.Section p={16}>
-        <TextInput value={props.label} onChange={(e) => h.onChangeLabel(e.target.value)} />
+        <TextInput
+          label="Edit label"
+          value={props.label}
+          onChange={(e) => h.onChangeLabel(e.target.value)}
+        />
       </Card.Section>
     </Card>
   );

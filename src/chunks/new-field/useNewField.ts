@@ -1,10 +1,11 @@
 import { isNotEmpty, useForm } from '@mantine/form';
 import { useContext, useState } from 'react';
+import { NewFieldProps } from '@/chunks/new-field/NewField.types';
+import { FieldsContext } from '@/fragments/build-form/FieldsContext';
 import { FieldType } from '@/types/forms.types';
-import { FieldsContext } from '../FieldsContext';
 
-export default function useNewField() {
-  const { updateFields } = useContext(FieldsContext);
+export default function useNewField(props: NewFieldProps) {
+  const context = useContext(FieldsContext);
   const [selectedType, setSelectedType] = useState(FieldType.Text);
 
   const form = useForm({
@@ -15,7 +16,9 @@ export default function useNewField() {
   });
 
   const onSubmit = form.onSubmit((values) => {
-    updateFields((fields) => {
+    const updater = props.updater ?? context.updateFields;
+
+    updater((fields) => {
       fields.push({
         label: values.label,
         type: selectedType,
