@@ -19,5 +19,5 @@ export default function useFormField(props: FormFieldProps) {
     });
   };
 
-  return { onChangeLabel, onDelete };
+  return { context, onChangeLabel, onDelete };
 }

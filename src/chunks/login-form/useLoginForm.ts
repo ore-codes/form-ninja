@@ -17,7 +17,7 @@ export default function useLoginForm() {
     const res = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: window.location.host,
+        emailRedirectTo: window.location.origin,
       },
     });
 

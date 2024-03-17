@@ -9,7 +9,7 @@ export default function FormField(props: FormFieldProps) {
     <Card padding="lg" radius="md" withBorder>
       <Card.Section withBorder p={16}>
         <Flex justify="space-between" align="center">
-          <Badge>{props.fieldType}</Badge>
+          <Badge data-testid="fieldType">{props.fieldType}</Badge>
           <Button variant="transparent" onClick={h.onDelete}>
             Delete
           </Button>
