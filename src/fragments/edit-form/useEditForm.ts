@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useImmer } from 'use-immer';
+import { Lg } from '@/constants/css-breakpoints';
 import { QUERY_USER_FORM } from '@/constants/react-query';
 import { Json } from '@/types/database.types';
 import { useUser } from '@/lib/auth';
@@ -16,7 +17,7 @@ export default function useEditForm() {
   const router = useRouter();
   const { data: user } = useUser();
   const c = useContext(UserFormContext);
-  const isLg = useMediaQuery('(min-width: 75em)');
+  const isLg = useMediaQuery(`(min-width: ${Lg})`);
   const [fields, updateFields] = useImmer<Field[]>([]);
   const form = useForm({
     initialValues: { title: '' },

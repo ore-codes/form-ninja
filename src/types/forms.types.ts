@@ -11,4 +11,9 @@ export enum FieldType {
   Text = 'Text',
 }
 
-export type FormRecord = Tables<'forms'> & { fields: Field[] };
+export type FormRecord = Tables<'forms'> & {
+  fields: Field[];
+  responses?: Partial<Tables<'responses'>>[];
+};
+
+export type FormResponseData = Record<string, any>;

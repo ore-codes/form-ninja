@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
+import { Lg } from '@/constants/css-breakpoints';
 import { Json } from '@/types/database.types';
 import { useUser } from '@/lib/auth';
 import { QUERY_USER_FORM } from '@/constants/react-query';
@@ -14,7 +15,7 @@ export default function useBuildForm() {
   const router = useRouter();
   const { data: user } = useUser();
   const { fields } = useContext(FieldsContext);
-  const isLg = useMediaQuery('(min-width: 75em)');
+  const isLg = useMediaQuery(`(min-width: ${Lg})`);
   const form = useForm({
     initialValues: { title: '' },
     validate: {

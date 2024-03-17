@@ -35,6 +35,35 @@ export type Database = {
           },
         ];
       };
+      responses: {
+        Row: {
+          created_at: string;
+          data: Json;
+          form_id: string | null;
+          id: string;
+        };
+        Insert: {
+          created_at?: string;
+          data: Json;
+          form_id?: string | null;
+          id?: string;
+        };
+        Update: {
+          created_at?: string;
+          data?: Json;
+          form_id?: string | null;
+          id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'public_responses_form_id_fkey';
+            columns: ['form_id'];
+            isOneToOne: false;
+            referencedRelation: 'forms';
+            referencedColumns: ['uuid'];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
