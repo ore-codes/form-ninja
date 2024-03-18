@@ -6,7 +6,7 @@ import { Props } from './FormResponse.types';
 
 export default function FormResponse(p: Props) {
   return (
-    <Card withBorder>
+    <Card withBorder maw={640}>
       <Card.Section p={8} withBorder>
         <Text fw={700} ta="right" data-testid="date">
           {new Date(p.response.created_at).toDateString()}
@@ -14,8 +14,10 @@ export default function FormResponse(p: Props) {
       </Card.Section>
       {Object.entries(p.response.data as FormResponseData).map(([question, answer], index) => (
         <Card.Section key={index} withBorder p={4}>
-          <Title order={4}>{question}</Title>
-          <Text>{answer}</Text>
+          <Text>{question}</Text>
+          <Title order={4} c="pink.2">
+            {answer}
+          </Title>
         </Card.Section>
       ))}
     </Card>
